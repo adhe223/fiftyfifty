@@ -7,3 +7,10 @@ export default interface Transaction {
   amount: number;
   person: person;
 }
+
+export interface TransactionPayload {
+  description: string;
+  date: Date;
+  amount: number;
+  person: person;
+}
