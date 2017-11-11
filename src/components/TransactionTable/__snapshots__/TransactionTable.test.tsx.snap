@@ -4,72 +4,74 @@ exports[`TransactionTable render should render correctly 1`] = `
 <table
   className="transaction-table"
 >
-  <tr
-    className="transaction-table--header-row"
-    key="tr-header-row"
-  >
-    <th>
-      Date
-    </th>
-    <th>
-      Person
-    </th>
-    <th>
-      Description
-    </th>
-    <th>
-      Amount
-    </th>
-  </tr>
-  <tr
-    className="transaction-table--row"
-    key="row-0"
-  >
-    <td
-      key="row-0td-1"
+  <tbody>
+    <tr
+      className="transaction-table--header-row"
+      key="tr-header-row"
     >
-      Mon Jan 01 2001 00:00:00 GMT-0800 (PST)
-    </td>
-    <td
-      key="row-0td-2"
+      <th>
+        Date
+      </th>
+      <th>
+        Person
+      </th>
+      <th>
+        Description
+      </th>
+      <th>
+        Amount
+      </th>
+    </tr>
+    <tr
+      className="transaction-table--row"
+      key="row-0"
     >
-      Alex
-    </td>
-    <td
-      key="row-0td-3"
+      <td
+        key="row-0td-1"
+      >
+        Mon Jan 01 2001 00:00:00 GMT-0800 (PST)
+      </td>
+      <td
+        key="row-0td-2"
+      >
+        Alex
+      </td>
+      <td
+        key="row-0td-3"
+      >
+        Test 1
+      </td>
+      <td
+        key="row-0td-4"
+      >
+        1
+      </td>
+    </tr>
+    <tr
+      className="transaction-table--row"
+      key="row-1"
     >
-      Test 1
-    </td>
-    <td
-      key="row-0td-4"
-    >
-      1
-    </td>
-  </tr>
-  <tr
-    className="transaction-table--row"
-    key="row-1"
-  >
-    <td
-      key="row-1td-1"
-    >
-      Sat Feb 02 2002 00:00:00 GMT-0800 (PST)
-    </td>
-    <td
-      key="row-1td-2"
-    >
-      Cindy
-    </td>
-    <td
-      key="row-1td-3"
-    >
-      Test 2
-    </td>
-    <td
-      key="row-1td-4"
-    >
-      2
-    </td>
-  </tr>
+      <td
+        key="row-1td-1"
+      >
+        Sat Feb 02 2002 00:00:00 GMT-0800 (PST)
+      </td>
+      <td
+        key="row-1td-2"
+      >
+        Cindy
+      </td>
+      <td
+        key="row-1td-3"
+      >
+        Test 2
+      </td>
+      <td
+        key="row-1td-4"
+      >
+        2
+      </td>
+    </tr>
+  </tbody>
 </table>
 `;

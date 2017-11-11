@@ -17,13 +17,15 @@ const TransactionTable = (props: TransactionTableProps) => {
 
   return (
     <table className="transaction-table">
-      <tr className="transaction-table--header-row" key="tr-header-row">
-        <th>Date</th>
-        <th>Person</th>
-        <th>Description</th>
-        <th>Amount</th>
-      </tr>
-      {rows}
+      <tbody>
+        <tr className="transaction-table--header-row" key="tr-header-row">
+          <th>Date</th>
+          <th>Person</th>
+          <th>Description</th>
+          <th>Amount</th>
+        </tr>
+        {rows}
+      </tbody>
     </table>
   );
 };
