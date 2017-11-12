@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import Transaction from '../../data/models/Transaction';
 
 export interface TransactionTableProps {

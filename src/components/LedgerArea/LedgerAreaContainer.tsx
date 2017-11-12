@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
-
-import LedgerArea from './LedgerArea';
-import { StoreState } from 'types';
-import Person from 'data/models/Person';
-import { submittingTx } from 'data/LeadgerArea/actions';
-import { getTransactions, getPeople } from 'data/selectors';
 import { Dispatch, Action } from 'redux';
 
-const mapStateToProps = (state: StoreState) => {
+import LedgerArea from './LedgerArea';
+import { StoreState } from '../../types';
+import Person from '../../data/models/Person';
+import { submittingTx } from '../../data/LeadgerArea/actions';
+import { getTransactions, getPeople } from '../../data/selectors';
+
+const mapStateToProps = (store: StoreState) => {
   return {
-    transactions: getTransactions(state),
-    people: getPeople(state),
+    transactions: getTransactions(store),
+    people: getPeople(store),
   };
 };
 

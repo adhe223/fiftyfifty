@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Transaction from 'data/models/Transaction';
-import Person from 'data/models/Person';
+import Transaction from '../../data/models/Transaction';
+import Person from '../../data/models/Person';
 
 export interface LedgerStatusProps {
   people: Person[];

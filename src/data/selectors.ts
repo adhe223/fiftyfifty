@@ -1,11 +1,11 @@
-import { StoreState } from 'types';
+import { StoreState } from '../types';
 
 const getTransactions = (store: StoreState) => {
-  return store.transactions;
+  return store.ledgerArea.transactions;
 };
 
 const getPeople = (store: StoreState) => {
-  return store.people;
+  return store.ledgerArea.people;
 };
 
 export {

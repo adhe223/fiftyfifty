@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import LedgerArea from 'components/LedgerArea';
+import LedgerArea from '../LedgerArea';
 import './App.css';
 
 class App extends React.Component {

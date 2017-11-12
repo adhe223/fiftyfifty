@@ -1,9 +1,9 @@
 import React from 'react';
 
-import NewTxForm from 'components/NewTxForm';
-import TransactionTable from 'components/TransactionTable';
-import Person from 'data/models/Person';
-import Transaction from 'data/models/Transaction';
+import NewTxForm from '../../components/NewTxForm';
+import TransactionTable from '../../components/TransactionTable';
+import Person from '../../data/models/Person';
+import Transaction from '../../data/models/Transaction';
 
 export interface LedgerAreaProps {
   transactions: Transaction[];
@@ -17,6 +17,7 @@ export interface LedgerAreaProps {
 }
 
 const LedgerArea: React.StatelessComponent<LedgerAreaProps> = (props) => {
+  debugger;
   return (
     <div className="ledger-area">
       <NewTxForm people={props.people} submittingTx={props.submittingTx} />

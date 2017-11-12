@@ -1,8 +1,5 @@
-import Person from 'data/models/Person';
-import Transaction from 'data/models/Transaction';
+import { LedgerAreaState } from '../data/LeadgerArea/reducers';
 
 export interface StoreState {
-  submitting: boolean;
-  people: Person[];
-  transactions: Transaction[];
+  ledgerArea: LedgerAreaState;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Person from 'data/models/Person';
+import Person from '../../data/models/Person';
 
 export interface NewTxFormProps {
   people: Person[];

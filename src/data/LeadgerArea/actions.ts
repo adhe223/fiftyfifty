@@ -1,4 +1,4 @@
-import Person from 'data/models/Person';
+import Person from '../models/Person';
 
 const SUBMITTING_TX = 'SUBMITTING_TX';
 const submittingTx = (

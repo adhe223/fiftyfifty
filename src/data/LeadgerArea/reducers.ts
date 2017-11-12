@@ -1,9 +1,8 @@
 import { Action } from 'redux';
 
-import { StoreState } from 'types';
-import { SUBMITTING_TX } from 'data/LeadgerArea/actions';
-import Person from 'data/models/Person';
-import Transaction from 'data/models/Transaction';
+import { SUBMITTING_TX } from '../LeadgerArea/actions';
+import Person from '../models/Person';
+import Transaction from '../models/Transaction';
 
 const alex: Person = {
   id: 1,
@@ -35,16 +34,25 @@ const transactions: Transaction[] = [
   },
 ];
 
-const initialState: StoreState = {
+export interface LedgerAreaState {
+    submitting: boolean;
+    people: Person[];
+    transactions: Transaction[];
+  }
+
+const initialState: LedgerAreaState = {
   transactions,
   people,
   submitting: false,
 };
 
-const ledgerArea = (state: StoreState = initialState, action: Action): StoreState => {
+const ledgerArea = (state: LedgerAreaState = initialState, action: Action): LedgerAreaState => {
   switch (action.type) {
     case SUBMITTING_TX:
-      return {...state, submitting: true};
+      return {
+        ...state,
+        submitting: true,
+      };
     default:
       return state;
   }
