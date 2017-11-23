@@ -12,14 +12,21 @@ export interface NewTxFormProps {
   ) => void;
 }
 
+const clearForm = () => {
+  (document.getElementsByClassName('new-tx-form--select')[0] as HTMLSelectElement).selectedIndex = 0;
+  (document.getElementsByClassName('new-tx-form--amount-input')[0] as HTMLInputElement).value = '';
+  (document.getElementsByClassName('new-tx-form--desc-input')[0] as HTMLInputElement).value = '';
+};
+
 const NewTxForm: React.StatelessComponent<NewTxFormProps> = (props) => {
   const onAddClick = () => {
-    const personIndex = (document.getElementsByTagName('person-select')[0] as HTMLSelectElement).selectedIndex;
-    const amount = (document.getElementsByTagName('amount')[0] as HTMLInputElement).value;
-    const description = (document.getElementsByTagName('description')[0] as HTMLInputElement).value;
+    const personIndex = (document.getElementsByClassName('new-tx-form--select')[0] as HTMLSelectElement).selectedIndex;
+    const amount = (document.getElementsByClassName('new-tx-form--amount-input')[0] as HTMLInputElement).value;
+    const description = (document.getElementsByClassName('new-tx-form--desc-input')[0] as HTMLInputElement).value;
     const date = new Date();
 
     props.submittingTx(props.people[personIndex], parseInt(amount, 10), description, date);
+    clearForm();
   };
 
   const selectBox = (
@@ -31,11 +38,11 @@ const NewTxForm: React.StatelessComponent<NewTxFormProps> = (props) => {
   );
 
   const amtInput = (
-    <input type="text" name="amount" className="new-tx-form--input" />
+    <input type="text" name="amount" className="new-tx-form--amount-input" />
   );
 
   const descInput = (
-    <input type="text" name="description" className="new-tx-form--input" />
+    <input type="text" name="description" className="new-tx-form--desc-input" />
   );
 
   const addButton = (
@@ -45,9 +52,7 @@ const NewTxForm: React.StatelessComponent<NewTxFormProps> = (props) => {
   return (
     <div className="new-transaction-form">
       <span>
-        {selectBox} paid {amtInput} for {descInput}
-        <br/>
-        {addButton}
+        {selectBox} paid {amtInput} for {descInput} &nbsp; {addButton}
       </span>
     </div>
   );
