@@ -6,6 +6,7 @@ export default interface Transaction {
   date: Date;
   amount: number;
   person: Person;
+  settled: Boolean;
 }
 
 export interface TransactionPayload {
