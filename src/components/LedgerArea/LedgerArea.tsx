@@ -9,15 +9,10 @@ import Transaction from '../../data/models/Transaction';
 export interface LedgerAreaProps {
   transactions: Transaction[];
   people: Person[];
-  submittingTx: (
-    personId: String,
-    amount: number,
-    description: string,
-    date: Date,
-  ) => void;
+  submittingTx: (personId: string, amount: number, description: string, date: Date) => void;
 }
 
-const LedgerArea: React.StatelessComponent<LedgerAreaProps> = (props) => {
+const LedgerArea: React.StatelessComponent<LedgerAreaProps> = props => {
   return (
     <div className="ledger-area">
       <NewTxForm people={props.people} submittingTx={props.submittingTx} />

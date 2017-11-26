@@ -11,12 +11,12 @@ describe('TransactionTable', () => {
 
     beforeEach(() => {
       const alex = {
-        id: 1,
-        name: 'Alex',
+        id: 'alexId',
+        name: 'Alex'
       };
       const cindy = {
-        id: 2,
-        name: 'Cindy',
+        id: 'cindyId',
+        name: 'Cindy'
       };
 
       const transactions: Transaction[] = [
@@ -25,15 +25,17 @@ describe('TransactionTable', () => {
           description: 'Test 1',
           amount: 1,
           date: new Date('1/1/2001'),
-          person: alex,
+          personId: alex.id,
+          settled: false
         },
         {
           id: 2,
           description: 'Test 2',
           amount: 2,
           date: new Date('2/2/2002'),
-          person: cindy,
-        },
+          personId: cindy.id,
+          settled: false
+        }
       ];
 
       wrapper = shallow(<TransactionTable transactions={transactions} />);

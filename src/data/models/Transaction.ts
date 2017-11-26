@@ -3,6 +3,6 @@ export default interface Transaction {
   description: string;
   date: Date;
   amount: number;
-  person: String;
+  personId: string;
   settled: Boolean;
 };

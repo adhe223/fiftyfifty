@@ -8,26 +8,23 @@ export interface LedgerStatusProps {
   transactions: Transaction[];
 }
 
-const LedgerStatus: React.StatelessComponent<LedgerStatusProps> = (props) => {
+const LedgerStatus: React.StatelessComponent<LedgerStatusProps> = props => {
   const personTotals = {};
   const personOwes = {};
   let ledgerTotal = 0;
 
-  props.transactions.forEach((tx) => {
-    const {
-      amount,
-      person: { id }
-    } = tx;
+  props.transactions.forEach(tx => {
+    const { amount, personId } = tx;
 
-    personTotals[id] = personTotals[id] ? personTotals[id] : 0;
-    personTotals[id] += amount;
-    personOwes[id] = 0;
+    personTotals[personId] = personTotals[personId] ? personTotals[personId] : 0;
+    personTotals[personId] += amount;
+    personOwes[personId] = 0;
     ledgerTotal += amount;
   });
 
-  props.people.forEach((person) => {
+  props.people.forEach(person => {
     const personId = person.id;
-    personOwes[personId] = (ledgerTotal / props.people.length) - personTotals[personId];
+    personOwes[personId] = ledgerTotal / props.people.length - personTotals[personId];
   });
 
   const rows = props.people.map((person: Person, index) => (

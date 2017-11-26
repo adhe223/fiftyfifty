@@ -4,12 +4,12 @@ import './NewTxForm.css';
 
 export interface NewTxFormProps {
   people: Person[];
-  submittingTx: (personId: String, amount: number, description: string, date: Date) => void;
+  submittingTx: (personId: string, amount: number, description: string, date: Date) => void;
 }
 
 const clearForm = () => {
   (document.getElementsByClassName(
-    'new-tx-form--select',
+    'new-tx-form--select'
   )[0] as HTMLSelectElement).selectedIndex = 0;
   (document.getElementsByClassName('new-tx-form--amount-input')[0] as HTMLInputElement).value = '';
   (document.getElementsByClassName('new-tx-form--desc-input')[0] as HTMLInputElement).value = '';
@@ -18,13 +18,13 @@ const clearForm = () => {
 const NewTxForm: React.StatelessComponent<NewTxFormProps> = props => {
   const onAddClick = () => {
     const personIndex = (document.getElementsByClassName(
-      'new-tx-form--select',
+      'new-tx-form--select'
     )[0] as HTMLSelectElement).selectedIndex;
     const amount = (document.getElementsByClassName(
-      'new-tx-form--amount-input',
+      'new-tx-form--amount-input'
     )[0] as HTMLInputElement).value;
     const description = (document.getElementsByClassName(
-      'new-tx-form--desc-input',
+      'new-tx-form--desc-input'
     )[0] as HTMLInputElement).value;
     const date = new Date();
 

@@ -14,7 +14,7 @@ const mapStateToProps = (store: StoreState) => {
 const mapDispatchToProps = (dispatch: Dispatch<any>) => {
   return {
     submittingTx: (
-      personId: String,
+      personId: string,
       amount: number,
       description: string,
       date: Date,

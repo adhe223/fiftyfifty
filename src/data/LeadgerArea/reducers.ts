@@ -1,4 +1,4 @@
-import { ActionKeys, ActionTypes } from '../index';
+import { ActionKeys, ActionTypes } from '../actions.types';
 import Person from '../models/Person';
 import Transaction from '../models/Transaction';
 
@@ -20,7 +20,7 @@ const transactions: Transaction[] = [
     id: 1,
     description: 'Test 1',
     amount: 1,
-    person: 'alexId',
+    personId: 'alexId',
     date: new Date(),
     settled: false
   },
@@ -28,7 +28,7 @@ const transactions: Transaction[] = [
     id: 2,
     description: 'Test 2',
     amount: 2,
-    person: 'cindyId',
+    personId: 'cindyId',
     date: new Date(),
     settled: false
   },

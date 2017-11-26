@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { ActionKeys, SubmittingTx, ProcessedTx, FetchingPeople, FetchedPeople } from '../index';
+import { ActionKeys, SubmittingTx, ProcessedTx, FetchingPeople, FetchedPeople } from '../actions.types';
 import { baseApiUrl } from '../../constants';
 import Person from '../models/Person';
 
