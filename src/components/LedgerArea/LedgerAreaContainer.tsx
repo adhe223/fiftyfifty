@@ -3,6 +3,7 @@ import LedgerArea from './LedgerArea';
 import { StoreState } from '../../types';
 import { submittingTx, fetchPeople } from '../../data/LeadgerArea/actions';
 import { getTransactions, getPeople } from '../../data/selectors';
+import { ActionTypes } from '../../data/actions.types';
 
 const mapStateToProps = (store: StoreState) => {
   return {
@@ -11,7 +12,7 @@ const mapStateToProps = (store: StoreState) => {
   };
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<any>) => {
+const mapDispatchToProps = (dispatch: Dispatch<ActionTypes>) => {
   return {
     submittingTx: (
       personId: string,

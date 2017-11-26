@@ -10,15 +10,22 @@ export interface LedgerAreaProps {
   transactions: Transaction[];
   people: Person[];
   submittingTx: (personId: string, amount: number, description: string, date: Date) => void;
+  fetchPeople: () => {};
 }
 
-const LedgerArea: React.StatelessComponent<LedgerAreaProps> = props => {
-  return (
-    <div className="ledger-area">
-      <NewTxForm people={props.people} submittingTx={props.submittingTx} />
-      <TransactionTable transactions={props.transactions} />
-      <LedgerStatus people={props.people} transactions={props.transactions} />
-    </div>
-  );
-};
+class LedgerArea extends React.PureComponent<LedgerAreaProps> {
+  public componentWillMount() {
+    this.props.fetchPeople();
+  }
+
+  public render() {
+    return (
+      <div className="ledger-area">
+        <NewTxForm people={this.props.people} submittingTx={this.props.submittingTx} />
+        <TransactionTable transactions={this.props.transactions} />
+        <LedgerStatus people={this.props.people} transactions={this.props.transactions} />
+      </div>
+    );
+  }
+}
 export default LedgerArea;

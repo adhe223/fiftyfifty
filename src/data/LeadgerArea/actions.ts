@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { ActionKeys, SubmittingTx, ProcessedTx, FetchingPeople, FetchedPeople } from '../actions.types';
+import { ActionKeys, SubmittingTx, ProcessedTx, FetchingPeople, FetchedPeople, ActionTypes } from '../actions.types';
 import { baseApiUrl } from '../../constants';
 import Person from '../models/Person';
 
@@ -41,11 +41,18 @@ const fetchedPeople = (
 });
 
 const fetchPeople = () => {
-  return (dispatch: Dispatch<any>): void => {
+  return (dispatch: Dispatch<ActionTypes>): void => {
     dispatch(fetchingPeople());
 
     const url = `${baseApiUrl}/people`;
-    fetch(url)
+    const fetchOptions: RequestInit = {
+      method: 'GET',
+      headers: new Headers(),
+      mode: 'cors',
+      cache: 'default'
+    };
+
+    fetch(url, fetchOptions)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to fetch customers');

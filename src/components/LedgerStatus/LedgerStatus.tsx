@@ -23,14 +23,14 @@ const LedgerStatus: React.StatelessComponent<LedgerStatusProps> = props => {
   });
 
   props.people.forEach(person => {
-    const personId = person.id;
+    const personId = person._id;
     personOwes[personId] = ledgerTotal / props.people.length - personTotals[personId];
   });
 
   const rows = props.people.map((person: Person, index) => (
     <tr key={'status-row' + index} className="status-table--row">
       <td key={'status-row' + index + 'td-1'}>{person.name}</td>
-      <td key={'status-row' + index + 'td-2'}>{personOwes[person.id]}</td>
+      <td key={'status-row' + index + 'td-2'}>{personOwes[person._id]}</td>
     </tr>
   ));
 

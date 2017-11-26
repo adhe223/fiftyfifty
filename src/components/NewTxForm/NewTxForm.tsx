@@ -28,7 +28,7 @@ const NewTxForm: React.StatelessComponent<NewTxFormProps> = props => {
     )[0] as HTMLInputElement).value;
     const date = new Date();
 
-    props.submittingTx(props.people[personIndex].id, parseInt(amount, 10), description, date);
+    props.submittingTx(props.people[personIndex]._id, parseInt(amount, 10), description, date);
     clearForm();
   };
 

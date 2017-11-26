@@ -2,18 +2,19 @@ import { ActionKeys, ActionTypes } from '../actions.types';
 import Person from '../models/Person';
 import Transaction from '../models/Transaction';
 
-const alex: Person = {
-  id: 'alex',
-  name: 'Alex',
-};
-const cindy: Person = {
-  id: 'cindy',
-  name: 'Cindy',
-};
-const people = [
-  alex,
-  cindy,
-];
+// const alex: Person = {
+//   id: 'alex',
+//   name: 'Alex',
+// };
+// const cindy: Person = {
+//   id: 'cindy',
+//   name: 'Cindy',
+// };
+// const people = [
+//   alex,
+//   cindy,
+// ];
+const people: Person[] = [];
 
 const transactions: Transaction[] = [
   {
