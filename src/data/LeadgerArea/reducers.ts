@@ -1,6 +1,6 @@
 import { Action } from 'redux';
 
-import { SUBMITTING_TX } from '../LeadgerArea/actions';
+import { SUBMITTING_TX, PROCESSED_TX, FETCHING_PEOPLE, FETCHED_PEOPLE } from '../LeadgerArea/actions';
 import Person from '../models/Person';
 import Transaction from '../models/Transaction';
 
@@ -22,20 +22,19 @@ const transactions: Transaction[] = [
     id: 1,
     description: 'Test 1',
     amount: 1,
-    date: new Date('1/1/2001'),
-    person: alex,
+    person: 'alexId',
   },
   {
     id: 2,
     description: 'Test 2',
     amount: 2,
-    date: new Date('2/2/2002'),
-    person: cindy,
+    person: 'cindyId',
   },
 ];
 
 export interface LedgerAreaState {
-    submitting: boolean;
+    submittingTx: boolean;
+    fetchingPeople: boolean;
     people: Person[];
     transactions: Transaction[];
   }
@@ -43,15 +42,32 @@ export interface LedgerAreaState {
 const initialState: LedgerAreaState = {
   transactions,
   people,
-  submitting: false,
+  submittingTx: false,
+  fetchingPeople: false
 };
 
-const ledgerArea = (state: LedgerAreaState = initialState, action: Action): LedgerAreaState => {
+const ledgerArea = (state: LedgerAreaState = initialState, action: any): LedgerAreaState => {
   switch (action.type) {
     case SUBMITTING_TX:
       return {
         ...state,
-        submitting: true,
+        submittingTx: true,
+      };
+    case PROCESSED_TX:
+      return {
+        ...state,
+        submittingTx: false
+      };
+    case FETCHING_PEOPLE:
+      return {
+        ...state,
+        fetchingPeople: true
+      };
+    case FETCHED_PEOPLE:
+      return {
+        ...state,
+        fetchingPeople: false,
+        people: action.payload.people
       };
     default:
       return state;

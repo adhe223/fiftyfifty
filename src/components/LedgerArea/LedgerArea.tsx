@@ -10,7 +10,7 @@ export interface LedgerAreaProps {
   transactions: Transaction[];
   people: Person[];
   submittingTx: (
-    person: Person,
+    personId: String,
     amount: number,
     description: string,
     date: Date,

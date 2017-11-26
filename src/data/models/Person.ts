@@ -1,4 +1,4 @@
 export default interface Person {
-  id: number;
+  id: string;
   name: string;
-}
+};
