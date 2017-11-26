@@ -1,15 +1,13 @@
-import { Action } from 'redux';
-
-import { SUBMITTING_TX, PROCESSED_TX, FETCHING_PEOPLE, FETCHED_PEOPLE } from '../LeadgerArea/actions';
+import { ActionKeys, ActionTypes } from '../index';
 import Person from '../models/Person';
 import Transaction from '../models/Transaction';
 
 const alex: Person = {
-  id: 1,
+  id: 'alex',
   name: 'Alex',
 };
 const cindy: Person = {
-  id: 2,
+  id: 'cindy',
   name: 'Cindy',
 };
 const people = [
@@ -23,12 +21,16 @@ const transactions: Transaction[] = [
     description: 'Test 1',
     amount: 1,
     person: 'alexId',
+    date: new Date(),
+    settled: false
   },
   {
     id: 2,
     description: 'Test 2',
     amount: 2,
     person: 'cindyId',
+    date: new Date(),
+    settled: false
   },
 ];
 
@@ -46,24 +48,24 @@ const initialState: LedgerAreaState = {
   fetchingPeople: false
 };
 
-const ledgerArea = (state: LedgerAreaState = initialState, action: any): LedgerAreaState => {
+const ledgerArea = (state: LedgerAreaState = initialState, action: ActionTypes): LedgerAreaState => {
   switch (action.type) {
-    case SUBMITTING_TX:
+    case ActionKeys.SUBMITTING_TX:
       return {
         ...state,
         submittingTx: true,
       };
-    case PROCESSED_TX:
+    case ActionKeys.PROCESSED_TX:
       return {
         ...state,
         submittingTx: false
       };
-    case FETCHING_PEOPLE:
+    case ActionKeys.FETCHING_PEOPLE:
       return {
         ...state,
         fetchingPeople: true
       };
-    case FETCHED_PEOPLE:
+    case ActionKeys.FETCHED_PEOPLE:
       return {
         ...state,
         fetchingPeople: false,

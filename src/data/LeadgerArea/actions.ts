@@ -1,43 +1,40 @@
-import { Dispatch, Action } from 'redux';
+import { Dispatch } from 'redux';
+import { ActionKeys, SubmittingTx, ProcessedTx, FetchingPeople, FetchedPeople } from '../index';
 import { baseApiUrl } from '../../constants';
 import Person from '../models/Person';
 
-const SUBMITTING_TX = 'SUBMITTING_TX';
 const submittingTx = (
-  personId: String,
+  personId: string,
   amount: number,
   description: string,
   date: Date,
-) => ({
-  type: SUBMITTING_TX,
+): SubmittingTx => ({
+  type: ActionKeys.SUBMITTING_TX,
   payload: {
     personId,
     amount,
     description,
-    date,
-  },
+    date
+  }
 });
 
-const PROCESSED_TX = 'PROCESSED_TX';
 const processedTx = (
-  err?: String
-) => ({
-  type: PROCESSED_TX,
+  err?: string
+): ProcessedTx => ({
+  type: ActionKeys.PROCESSED_TX,
   payload: {
     err,
   }
 });
 
-const FETCHING_PEOPLE = 'FETCHING_PEOPLE';
-const fetchingPeople = () => ({
-  type: FETCHING_PEOPLE
+const fetchingPeople = (): FetchingPeople => ({
+  type: ActionKeys.FETCHING_PEOPLE
 });
 
-const FETCHED_PEOPLE = 'FETCHED_PEOPLE';
 const fetchedPeople = (
   people: Person[],
-) => ({
-  type: FETCHED_PEOPLE,
+): FetchedPeople => ({
+  type: ActionKeys.FETCHED_PEOPLE,
   payload: {
     people
   }
@@ -64,12 +61,8 @@ const fetchPeople = () => {
 
 export {
   submittingTx,
-  SUBMITTING_TX,
   processedTx,
-  PROCESSED_TX,
   fetchPeople,
   fetchingPeople,
-  FETCHING_PEOPLE,
   fetchedPeople,
-  FETCHED_PEOPLE
 };
