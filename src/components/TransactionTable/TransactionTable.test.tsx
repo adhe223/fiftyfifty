@@ -11,11 +11,11 @@ describe('TransactionTable', () => {
 
     beforeEach(() => {
       const alex = {
-        id: 'alexId',
+        _id: 'alexId',
         name: 'Alex'
       };
       const cindy = {
-        id: 'cindyId',
+        _id: 'cindyId',
         name: 'Cindy'
       };
 
@@ -25,7 +25,7 @@ describe('TransactionTable', () => {
           description: 'Test 1',
           amount: 1,
           date: new Date('1/1/2001'),
-          personId: alex.id,
+          person: alex,
           settled: false
         },
         {
@@ -33,7 +33,7 @@ describe('TransactionTable', () => {
           description: 'Test 2',
           amount: 2,
           date: new Date('2/2/2002'),
-          personId: cindy.id,
+          person: cindy,
           settled: false
         }
       ];

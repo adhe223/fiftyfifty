@@ -10,7 +10,7 @@ const TransactionTable = (props: TransactionTableProps) => {
   const rows = props.transactions.map((transaction: Transaction, index) => (
     <tr key={'row-' + index} className="transaction-table--row">
       <td key={'row-' + index + 'td-1'}>{transaction.date.toString()}</td>
-      <td key={'row-' + index + 'td-2'}>{transaction.personId}</td>
+      <td key={'row-' + index + 'td-2'}>{transaction.person.name}</td>
       <td key={'row-' + index + 'td-3'}>{transaction.description}</td>
       <td key={'row-' + index + 'td-4'}>{transaction.amount}</td>
     </tr>

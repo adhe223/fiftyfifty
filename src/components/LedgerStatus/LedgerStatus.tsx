@@ -14,7 +14,8 @@ const LedgerStatus: React.StatelessComponent<LedgerStatusProps> = props => {
   let ledgerTotal = 0;
 
   props.transactions.forEach(tx => {
-    const { amount, personId } = tx;
+    const { amount, person } = tx;
+    const personId = person._id;
 
     personTotals[personId] = personTotals[personId] ? personTotals[personId] : 0;
     personTotals[personId] += amount;

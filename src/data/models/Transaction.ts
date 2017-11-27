@@ -1,8 +1,10 @@
+import Person from './Person';
+
 export default interface Transaction {
   id: number;
   description: string;
   date: Date;
   amount: number;
-  personId: string;
+  person: Person;
   settled: Boolean;
 };
