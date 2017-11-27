@@ -11,11 +11,13 @@ export interface LedgerAreaProps {
   people: Person[];
   submittingTx: (personId: string, amount: number, description: string, date: Date) => void;
   fetchPeople: () => {};
+  fetchTxs: () => {};
 }
 
 class LedgerArea extends React.PureComponent<LedgerAreaProps> {
   public componentWillMount() {
     this.props.fetchPeople();
+    this.props.fetchTxs();
   }
 
   public render() {
