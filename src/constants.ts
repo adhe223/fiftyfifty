@@ -1,3 +1,3 @@
-const baseApiUrl = 'http://localhost:3000';
+const baseApiUrl = 'http://localhost:8080';
 
 export { baseApiUrl };

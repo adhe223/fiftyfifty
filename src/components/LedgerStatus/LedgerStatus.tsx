@@ -9,29 +9,32 @@ export interface LedgerStatusProps {
 }
 
 const LedgerStatus: React.StatelessComponent<LedgerStatusProps> = props => {
-  const personTotals = {};
   const personOwes = {};
-  let ledgerTotal = 0;
 
-  props.transactions.forEach(tx => {
-    const { amount, person } = tx;
-    const personId = person._id;
+  if (props.transactions.length && props.people.length) {
+    props.transactions.forEach(tx => {
+      const { amount } = tx;
+      const txPerson = tx.person;
 
-    personTotals[personId] = personTotals[personId] ? personTotals[personId] : 0;
-    personTotals[personId] += amount;
-    personOwes[personId] = 0;
-    ledgerTotal += amount;
-  });
-
-  props.people.forEach(person => {
-    const personId = person._id;
-    personOwes[personId] = ledgerTotal / props.people.length - personTotals[personId];
-  });
+      const personalCost = amount / props.people.length;
+      props.people.forEach(person => {
+        if (person._id === txPerson._id) {
+          personOwes[person._id] = personOwes[person._id]
+            ? (personOwes[person._id] -= personalCost)
+            : -personalCost;
+        } else {
+          personOwes[person._id] = personOwes[person._id]
+            ? (personOwes[person._id] += personalCost)
+            : personalCost;
+        }
+      });
+    });
+  }
 
   const rows = props.people.map((person: Person, index) => (
     <tr key={'status-row' + index} className="status-table--row">
       <td key={'status-row' + index + 'td-1'}>{person.name}</td>
-      <td key={'status-row' + index + 'td-2'}>{personOwes[person._id]}</td>
+      <td key={'status-row' + index + 'td-2'}>{personOwes[person._id] || 0}</td>
     </tr>
   ));
 
